@@ -1,12 +1,11 @@
 def affiche(n):
-    resultat = ""
-    for i in range(1, n + 1):
+    def fizzbuzz_value(i):
         if i % 15 == 0:
-            resultat += "FrisBee"
+            return "FrisBee"
         elif i % 3 == 0:
-            resultat += "Fizz"
+            return "Fizz"
         elif i % 5 == 0:
-            resultat += "Buzz"
-        else:
-            resultat += str(i)
-    return resultat
+            return "Buzz"
+        return str(i)
+    
+    return "".join(fizzbuzz_value(i) for i in range(1, n + 1))
