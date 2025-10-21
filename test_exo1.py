@@ -1,16 +1,18 @@
 import unittest
-from io import StringIO
-from unittest.mock import patch
 from exo1 import affiche
 
 class TestFizzBuzz(unittest.TestCase):
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_affiche_output(self, mock_stdout):
-        affiche()
-        output = mock_stdout.getvalue().strip()
+    def test_affiche_5(self):
+        attendu = "12Fizz4Buzz"
+        self.assertEqual(affiche(5), attendu)
+
+    def test_affiche_15(self):
         attendu = "12Fizz4BuzzFizz78FizzBuzz11Fizz1314FrisBee"
-        # On ne vérifie que les 15 premiers caractères pour alléger le test
-        self.assertTrue(output.startswith(attendu))
+        self.assertEqual(affiche(15), attendu)
+
+    def test_affiche_1(self):
+        attendu = "1"
+        self.assertEqual(affiche(1), attendu)
 
 if __name__ == "__main__":
     unittest.main()
