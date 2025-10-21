@@ -1,10 +1,11 @@
 def affiche():
-    for i in range(1, 101):
+    def valeur_fizzbuzz(i):
         if i % 15 == 0:
-            print("FrisBee", end="")
+            return "FrisBee"
         elif i % 3 == 0:
-            print("Fizz", end="")
+            return "Fizz"
         elif i % 5 == 0:
-            print("Buzz", end="")
-        else:
-            print(i, end="")
+            return "Buzz"
+        return str(i)
+
+    print("".join(valeur_fizzbuzz(i) for i in range(1, 101)), end="")
